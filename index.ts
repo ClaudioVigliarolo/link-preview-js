@@ -404,22 +404,11 @@ export async function getLinkPreview(
     throw e;
   });
 
+  console.log("myressppp",response)
+
   clearTimeout(timeoutCounter);
 
-  const headers: Record<string, string> = {};
-  response.headers.forEach((header, key) => {
-    headers[key] = header;
-  });
-
-  const normalizedResponse: IPreFetchedResource = {
-    url: options?.proxyUrl
-      ? response.url.replace(options.proxyUrl, ``)
-      : response.url,
-    headers,
-    data: await response.text(),
-  };
-
-  return parseResponse(normalizedResponse, options);
+  return null;
 }
 
 /**
